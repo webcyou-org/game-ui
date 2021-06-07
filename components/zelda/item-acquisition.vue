@@ -3,8 +3,8 @@
         <ul class="list itemAcquisitionList" v-itemAcquisitionList>
             <li v-for="(item, index) in itemAcquisitionList" :key="index" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" :class="{isHide: !item.isShow}" key='index' v-itemAcquisitionListItem>
                 <div class="wrap">
-                    <p class="image item"><img src="" width="40" /></p>
-                    <p class="name">焼きりんご</p>
+                    <p class="image item"><img :src="item.image" width="100%" /></p>
+                    <p class="name">{{ item.name }}</p>
                 </div>
             </li>
         </ul>
@@ -14,6 +14,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { remove } from 'lodash'
+import { dataurl } from '~/config/dataurl'
 
 @Component({
     directives: {
@@ -27,7 +28,7 @@ import { remove } from 'lodash'
                 el.addEventListener(
                     'animationend',
                     () => {
-                        vnode.context.flowerGetListAnimationEnd(binding.value, el)
+                        vnode.context.itemAnimationEnd(binding.value, el)
                     },
                     true
                 )
@@ -59,12 +60,13 @@ export default class ZeldaItemAcquisitionList extends Vue {
         this.binding = binding
     }
 
-    // tslint:disable-next-line
     onShowItemAcquisitionList(item: any) {
         this.isShow = true
+        console.log(item)
 
         this.itemAcquisitionList.push({
-            item,
+            name: '焼きりんご',
+            image: dataurl.apple,
             y: 0,
             isShow: true
         })
@@ -72,7 +74,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
         this.changeItemAcquisitionListTranslate(this.itemAcquisitionList.length)
     }
 
-    flowerGetListAnimationEnd() {
+    itemAnimationEnd() {
         this.itemAcquisitionList = remove(this.itemAcquisitionList, (item, index) => {
             return index === 0
         })
@@ -86,7 +88,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
         let count = index
 
         this.itemAcquisitionList.forEach(item => {
-            item.y = count * 40
+            item.y = count * 60
             count -= 1
         })
     }
@@ -132,22 +134,22 @@ export default class ZeldaItemAcquisitionList extends Vue {
         transition: all 0.6s;
         color: #fff;
         & > .wrap {
-            position: relative; /* animation: item-acquisition-list-wrap 2.5s 1; */
+            position: relative; /* animation: item-acquisition-list-wrap 5s 1; */
             animation: item-acquisition-list-wrap 5s 1;
         }
         .image {
             &.item {
                 position: absolute;
-                left: -16px;
-                bottom: 0;
-                width: 32px;
-                height: 32px;
+                left: -19px;
+                bottom: -5px;
+                width: 50px;
+                height: 50px;
                 img {
-                    width: 70%;
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate3d(-50%, -50%, 0);
+                    z-index: 1;
                 }
             }
         }
