@@ -7,11 +7,18 @@
         "build": "nuxt build",
         "start": "nuxt start",
         "generate": "nuxt generate",
-        "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-        "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-        "lint": "npm run lint:js && npm run lint:style",
-        "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-        "test": "jest"
+        "lint": "npm run lint:js:all && npm run lint:scss:all",
+        "lint:fix": "npm run lint:js:fix:all && npm run lint:scss:fix:all",
+        "lint:js:all": "npm run lint:js .; exit 0",
+        "lint:js:fix:all": "npm run lint:js:fix .; exit 0",
+        "lint:js": "eslint --ext .js,.ts,.vue",
+        "lint:js:fix": "eslint --fix --ext .js,.ts,.vue",
+        "lint:scss:all": "npm run lint:scss './**/*.scss' './**/*.vue' --syntax scss; exit 0",
+        "lint:scss:fix:all": "npm run lint:scss:fix './**/*.scss' './**/*.vue' --syntax scss; exit 0",
+        "lint:scss": "stylelint",
+        "lint:scss:fix": "stylelint --fix --syntax scss",
+        "test": "jest",
+        "format": "prettier --write"
     },
     "lint-staged": {
         "*.{js,vue}": "npm run lint",

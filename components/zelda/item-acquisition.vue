@@ -161,10 +161,10 @@ export default class ZeldaItemAcquisitionList extends Vue {
             width: 100%;
             padding: 4px 18px 4px 16px;
             background: linear-gradient(
-                    to right,
-                    rgba(73, 31, 19, 1) 0%,
-                    rgba(73, 31, 19, 1) 10%,
-                    rgba(73, 31, 19, 0.2) 100%
+                to right,
+                rgba(73, 31, 19, 1) 0%,
+                rgba(73, 31, 19, 1) 10%,
+                rgba(73, 31, 19, 0.2) 100%
             );
             color: #fff;
             font-size: 11px;
