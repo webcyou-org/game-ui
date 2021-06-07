@@ -4,11 +4,11 @@
             <li v-for="(item, index) in itemAcquisitionList" :key="index" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" :class="{isHide: !item.isShow}" key='index' v-itemAcquisitionListItem>
                 <div class="wrap">
                     <p class="image item"><img src="" width="40" /></p>
-                    <p class="name">アイテム名</p>
+                    <p class="name">焼きりんご</p>
                 </div>
             </li>
         </ul>
-        <p @click.stop="onShowItemAcquisitionList({ name: 'テスト' })">ボタン</p>
+        <p class="btn primary" @click.stop="onShowItemAcquisitionList({ name: 'テスト' })"><a>ボタン</a></p>
     </div>
 </template>
 <script lang="ts">
@@ -129,12 +129,11 @@ export default class ZeldaItemAcquisitionList extends Vue {
         position: absolute;
         top: 0;
         width: 100%;
-        border-radius: 5px;
         transition: all 0.6s;
         color: #fff;
         & > .wrap {
-            position: relative;
-            animation: item-acquisition-list-wrap 2.5s 1;
+            position: relative; /* animation: item-acquisition-list-wrap 2.5s 1; */
+            animation: item-acquisition-list-wrap 5s 1;
         }
         .image {
             &.item {
@@ -143,8 +142,6 @@ export default class ZeldaItemAcquisitionList extends Vue {
                 bottom: 0;
                 width: 32px;
                 height: 32px;
-                border-radius: 16px;
-                background: rgba(73, 31, 19, 1);
                 img {
                     width: 70%;
                     position: absolute;
@@ -159,16 +156,21 @@ export default class ZeldaItemAcquisitionList extends Vue {
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 4px 18px 4px 16px;
+            height: 26px;
+            padding-left: 40px;
+            border-top-left-radius: 13px;
+            border-bottom-left-radius: 13px;
             background: linear-gradient(
                 to right,
-                rgba(73, 31, 19, 1) 0%,
-                rgba(73, 31, 19, 1) 10%,
-                rgba(73, 31, 19, 0.2) 100%
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(0, 0, 0, 0.3) 40%,
+                rgba(0, 0, 0, 0.05) 100%
             );
             color: #fff;
-            font-size: 11px;
+            font-size: 15px;
             font-weight: bold;
+            line-height: 27px;
+            text-align: left;
         }
     }
 }
@@ -178,7 +180,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
         opacity: 0;
         transform: translate3d(20px, 0, 0);
     }
-    10% {
+    5% {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
