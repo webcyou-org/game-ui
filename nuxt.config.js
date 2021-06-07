@@ -6,7 +6,7 @@ export default {
     head: {
         title: 'game-ui',
         htmlAttrs: {
-            lang: 'en'
+            lang: 'ja'
         },
         meta: [
             { charset: 'utf-8' },
@@ -17,7 +17,7 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: [],
+    css: ['@/assets/scss/style.scss'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [],
@@ -36,7 +36,8 @@ export default {
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         // https://go.nuxtjs.dev/axios
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        ['nuxt-sass-resources-loader', ['@/assets/scss/base/style.scss', '@/assets/scss/base/_setting.scss']]
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios

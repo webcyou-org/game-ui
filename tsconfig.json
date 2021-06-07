@@ -29,7 +29,7 @@
       "@types/node"
     ]
   },
-  "exclude": [
+    "exclude": [
     "node_modules",
     ".nuxt",
     "dist"

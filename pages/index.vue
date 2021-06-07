@@ -3,27 +3,21 @@
         <div>
             <Logo />
             <h1 class="title">game-ui</h1>
-            <div class="links">
-                <a href="https://nuxtjs.org/" target="_blank" rel="noopener noreferrer" class="button--green">
-                    Documentation
-                </a>
-                <a
-                    href="https://github.com/nuxt/nuxt.js"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button--grey"
-                >
-                    GitHub
-                </a>
-            </div>
+            <zelda-item-acquisition-list></zelda-item-acquisition-list>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Vue } from 'vue-property-decorator'
+import ZeldaItemAcquisitionList from '~/components/zelda/item-acquisition.vue'
 
-export default Vue.extend({})
+@Component({
+    components: {
+        ZeldaItemAcquisitionList
+    }
+})
+export default class Home extends Vue {}
 </script>
 
 <style>
