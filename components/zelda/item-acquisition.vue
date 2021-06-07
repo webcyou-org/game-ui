@@ -123,7 +123,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
     z-index: 30;
     position: absolute;
     top: 160px;
-    right: 0;
+    right: 120px;
     width: 195px;
     & > li {
         position: absolute;
