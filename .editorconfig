@@ -3,11 +3,27 @@ root = true
 
 [*]
 indent_style = space
-indent_size = 2
+indent_size = 4
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+max_line_length = 120
+
+[*.{css,scss}]
+indent_size = 4
+
+[*.html]
+indent_size = 4
+
+[*.{js,ts,vue}]
+indent_size = 4
+
+[*.json]
+indent_size = 4
 
 [*.md]
 trim_trailing_whitespace = false
+
+[{.babelrc,.htmlhintrc,.lintstagedrc,.prettierrc}]
+indent_size = 4
