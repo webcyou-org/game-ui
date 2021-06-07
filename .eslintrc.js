@@ -4,8 +4,15 @@ module.exports = {
         browser: true,
         node: true
     },
-    extends: ['@nuxtjs/eslint-config-typescript', 'plugin:prettier/recommended', 'plugin:nuxt/recommended'],
-    plugins: [],
+    extends: [
+        '@nuxtjs/eslint-config-typescript',
+        'prettier',
+        'plugin:prettier/recommended',
+        'plugin:nuxt/recommended',
+        'plugin:vue/essential',
+        'plugin:prettier/recommended'
+    ],
+    plugins: ['prettier'],
     // add your custom rules here
     rules: {
         'prettier/prettier': [
@@ -18,6 +25,10 @@ module.exports = {
         ],
         'dot-notation': 'off',
         'no-console': ['warn', { allow: ['warn', 'error'] }],
-        'comma-dangle': ['error', 'never']
+        'comma-dangle': ['error', 'never'],
+        '@typescript-eslint/interface-name-prefix': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        'vue/attribute-hyphenation': 'off',
+        'vue/no-v-html': 'off'
     }
 }
