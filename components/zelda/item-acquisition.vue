@@ -67,7 +67,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
 </script>
 <!-- eslint-disable -->
 <style scoped lang="scss">
-.itemAcquisitionList {
+.list.itemAcquisitionList {
     z-index: 30;
     position: absolute;
     top: 130px;
@@ -80,7 +80,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
         transition: all 0.6s;
         color: #fff;
         & > .wrap {
-            position: relative; /* animation: item-acquisition-list-wrap 5s 1; */
+            position: relative;
             animation: item-acquisition-list-wrap 5s 1;
         }
         .image {
