@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="list itemAcquisitionList">
-            <li v-for="(item, index) in itemAcquisitionList" :key="item.timeStamp" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" v-itemAcquisitionListItem>
+            <li v-for="item in itemAcquisitionList" :key="item.timeStamp" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" v-itemAcquisitionListItem>
                 <div class="wrap">
                     <p class="image item"><img :src="item.image" width="100%" /></p>
                     <p class="name">{{ item.name }}</p>
