@@ -8,7 +8,7 @@
                 </div>
             </li>
         </ul>
-        <p class="btn primary" @click.stop="onPushAcquisition({ name: 'テスト' })"><a>ボタン</a></p>
+        <p class="btn primary" @click.stop="onPushAcquisition({ name: 'テスト' })"><a href="javascript:void(0)">ボタン</a></p>
     </div>
 </template>
 <script lang="ts">
@@ -70,8 +70,8 @@ export default class ZeldaItemAcquisitionList extends Vue {
 .itemAcquisitionList {
     z-index: 30;
     position: absolute;
-    top: 160px;
-    right: 120px;
+    top: 130px;
+    right: 60px;
     width: 195px;
     & > li {
         position: absolute;
