@@ -1,14 +1,14 @@
 <template>
     <div>
-        <ul class="list itemAcquisitionList" v-itemAcquisitionList>
-            <li v-for="(item, index) in itemAcquisitionList" :key="index" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" :class="{isHide: !item.isShow}" key='index' v-itemAcquisitionListItem>
+        <ul class="list itemAcquisitionList">
+            <li v-for="(item, index) in itemAcquisitionList" :key="item.timeStamp" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" v-itemAcquisitionListItem>
                 <div class="wrap">
                     <p class="image item"><img :src="item.image" width="100%" /></p>
                     <p class="name">{{ item.name }}</p>
                 </div>
             </li>
         </ul>
-        <p class="btn primary" @click.stop="onShowItemAcquisitionList({ name: 'テスト' })"><a>ボタン</a></p>
+        <p class="btn primary" @click.stop="onPushAcquisition({ name: 'テスト' })"><a>ボタン</a></p>
     </div>
 </template>
 <script lang="ts">
@@ -18,70 +18,41 @@ import { dataurl } from '~/config/dataurl'
 
 @Component({
     directives: {
-        itemAcquisitionList: {
-            inserted: (element: any, binding: any, vnode: any) => {
-                vnode.context.setElementData(element, binding)
-            }
-        },
         itemAcquisitionListItem: {
-            inserted: (el: any, binding: any, vnode: any) => {
-                el.addEventListener(
+            inserted: (element: any, _binding: any, vnode: any) => {
+                element.addEventListener(
                     'animationend',
                     () => {
-                        vnode.context.itemAnimationEnd(binding.value, el)
+                        vnode.context.itemAnimationEnd(vnode)
                     },
                     true
                 )
-            },
-            update: (el: any, binding: any, vnode: any) => {
-                const styles: any = (<any>el).currentStyle || (<any>document.defaultView).getComputedStyle(el, null)
-                const RE_MAT = /matrix\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)/
-                const mat: any = styles['transform'].match(RE_MAT).slice(1)
-                const f: number = parseInt(mat[5], 10)
-
-                if (f > 65) {
-                    el.style.opacity = 0
-                }
             }
         }
     }
 })
 export default class ZeldaItemAcquisitionList extends Vue {
-    // @ts-ignore 'element' が宣言されていますが、その値が読み取られることはありません
-    private element
-    // @ts-ignore 'binding' が宣言されていますが、その値が読み取られることはありません
-    private binding
-
-    public isShow: boolean = false
     public itemAcquisitionList: any[] = []
 
-    public setElementData(element: any, binding: any): void {
-        this.element = element
-        this.binding = binding
-    }
-
-    onShowItemAcquisitionList(item: any) {
-        this.isShow = true
-        console.log(item)
-
+    onPushAcquisition(item: any) {
         this.itemAcquisitionList.push({
             name: '焼きりんご',
             image: dataurl.apple,
-            y: 0,
-            isShow: true
+            timeStamp: Date.now(),
+            y: 0
         })
-
         this.changeItemAcquisitionListTranslate(this.itemAcquisitionList.length)
     }
 
-    itemAnimationEnd() {
-        this.itemAcquisitionList = remove(this.itemAcquisitionList, (item, index) => {
-            return index === 0
+    itemAnimationEnd(vnode) {
+        remove(this.itemAcquisitionList, item => {
+            return item.timeStamp === vnode.key
         })
 
-        if (this.itemAcquisitionList.length < 2) {
+        if (this.itemAcquisitionList.length <= 1) {
             this.itemAcquisitionList = []
         }
+        this.$forceUpdate()
     }
 
     changeItemAcquisitionListTranslate(index: number) {
@@ -90,31 +61,6 @@ export default class ZeldaItemAcquisitionList extends Vue {
         this.itemAcquisitionList.forEach(item => {
             item.y = count * 60
             count -= 1
-        })
-    }
-
-    public onShowGetFlowerList(itemList: any) {
-        itemList.forEach((item: any) => {
-            const wrapElem = document.createElement('div')
-            const imagePElem = document.createElement('p')
-            const imgElem = document.createElement('img')
-            const namePElem = document.createElement('p')
-
-            wrapElem.classList.add('wrap')
-
-            imagePElem.classList.add('image')
-            imagePElem.classList.add('item')
-
-            imgElem.src = item.images.center.s
-            imgElem.width = 40
-
-            imagePElem.appendChild(imgElem)
-
-            namePElem.classList.add('name')
-            namePElem.innerText = item.name
-
-            wrapElem.appendChild(imagePElem)
-            wrapElem.appendChild(namePElem)
         })
     }
 }
