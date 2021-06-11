@@ -31,11 +31,9 @@ export default class Home extends Vue {}
     background: #878b3f;
     text-align: center;
 }
-
 .title {
-    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-        Arial, sans-serif;
     display: block;
+    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     font-size: 100px;
     color: #35495e;

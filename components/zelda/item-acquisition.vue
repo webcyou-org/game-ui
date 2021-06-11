@@ -1,14 +1,21 @@
 <template>
     <div>
         <ul class="list itemAcquisitionList">
-            <li v-for="item in itemAcquisitionList" :key="item.timeStamp" :style="{transform: 'translate3d(0,' + item.y + 'px, 0)'}" v-itemAcquisitionListItem>
+            <li
+                v-for="item in itemAcquisitionList"
+                :key="item.timeStamp"
+                v-itemAcquisitionListItem
+                :style="{ transform: 'translate3d(0,' + item.y + 'px, 0)' }"
+            >
                 <div class="wrap">
                     <p class="image item"><img :src="item.image" width="100%" /></p>
                     <p class="name">{{ item.name }}</p>
                 </div>
             </li>
         </ul>
-        <p class="btn primary" @click.stop="onPushAcquisition({ name: 'テスト' })"><a href="javascript:void(0)">ボタン</a></p>
+        <p class="btn primary" @click.stop="onPushAcquisition({ name: 'テスト' })">
+            <a href="javascript:void(0)">ボタン</a>
+        </p>
     </div>
 </template>
 <script lang="ts">
@@ -45,7 +52,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
     }
 
     itemAnimationEnd(vnode) {
-        remove(this.itemAcquisitionList, item => {
+        remove(this.itemAcquisitionList, (item) => {
             return item.timeStamp === vnode.key
         })
 
@@ -58,7 +65,7 @@ export default class ZeldaItemAcquisitionList extends Vue {
     changeItemAcquisitionListTranslate(index: number) {
         let count = index
 
-        this.itemAcquisitionList.forEach(item => {
+        this.itemAcquisitionList.forEach((item) => {
             item.y = count * 60
             count -= 1
         })
