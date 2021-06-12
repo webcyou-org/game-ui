@@ -5,12 +5,13 @@
                 <p class="text">どのデータをロードしますか？</p>
                 <ul class="list mainMenu">
                     <li
-                        v-for="menuItem in zeldaMainMenuList"
+                        v-for="(menuItem, index) in zeldaMainMenuList"
                         :key="menuItem.date"
-                        :class="{ active: menuItem.isActive }"
+                        :class="{ active: isListActive(index) }"
+                        @mouseover="onListMouseover(index)"
                     >
-                        <p v-if="menuItem.isActive" class="pic active top"></p>
-                        <p v-if="menuItem.isActive" class="pic active bottom"></p>
+                        <p v-if="isListActive(index)" class="pic active top"></p>
+                        <p v-if="isListActive(index)" class="pic active bottom"></p>
                         <div class="wrap">
                             <p class="image"><img :src="menuItem.image" /></p>
                             <div class="box detail">
@@ -31,43 +32,47 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class ZeldaBOWHome extends Vue {
+    zeldaMainMenuActiveNumber = 0
     zeldaMainMenuList = [
         {
             date: '2021/06/14 20:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
-            isAutoSave: true,
-            isActive: true
+            isAutoSave: true
         },
         {
             date: '2021/05/24 15:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
-            isAutoSave: true,
-            isActive: false
+            isAutoSave: true
         },
         {
             date: '2021/04/10 10:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
-            isAutoSave: false,
-            isActive: false
+            isAutoSave: false
         },
         {
             date: '2021/03/22 10:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
-            isAutoSave: false,
-            isActive: false
+            isAutoSave: true
         },
         {
             date: '2021/02/10 10:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
-            isAutoSave: false,
-            isActive: false
+            isAutoSave: false
         }
     ]
+
+    isListActive(index): boolean {
+        return index === this.zeldaMainMenuActiveNumber
+    }
+
+    onListMouseover(index: number) {
+        this.zeldaMainMenuActiveNumber = index
+    }
 }
 </script>
 <!-- eslint-disable -->
