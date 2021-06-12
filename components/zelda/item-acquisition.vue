@@ -41,6 +41,7 @@ import { dataurl } from '~/config/dataurl'
 export default class ZeldaItemAcquisitionList extends Vue {
     public itemAcquisitionList: any[] = []
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onPushAcquisition(item: any) {
         this.itemAcquisitionList.push({
             name: '焼きりんご',

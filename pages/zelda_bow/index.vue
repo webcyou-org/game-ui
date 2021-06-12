@@ -4,35 +4,19 @@
             <div class="box mainMenu">
                 <p class="text">どのデータをロードしますか？</p>
                 <ul class="list mainMenu">
-                    <li class="active">
-                        <p class="pic active top"></p>
-                        <p class="pic active bottom"></p>
+                    <li
+                        v-for="menuItem in zeldaMainMenuList"
+                        :key="menuItem.date"
+                        :class="{ active: menuItem.isActive }"
+                    >
+                        <p v-if="menuItem.isActive" class="pic active top"></p>
+                        <p v-if="menuItem.isActive" class="pic active bottom"></p>
                         <div class="wrap">
-                            <p class="image"><img src="~assets/images/pic_zelda_bow_main_menu.jpg" /></p>
+                            <p class="image"><img :src="menuItem.image" /></p>
                             <div class="box detail">
-                                <p class="text date">2021/03/14 20:39</p>
-                                <p class="title">ハイラル城</p>
-                                <p class="text autoSave">オートセーブ</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="wrap">
-                            <p class="image"><img src="~assets/images/pic_zelda_bow_main_menu.jpg" /></p>
-                            <div class="box detail">
-                                <p class="text date">2021/03/14 20:39</p>
-                                <p class="title">ハイラル城</p>
-                                <p class="text autoSave">オートセーブ</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="wrap">
-                            <p class="image"><img src="~assets/images/pic_zelda_bow_main_menu.jpg" /></p>
-                            <div class="box detail">
-                                <p class="text date">2021/03/14 20:39</p>
-                                <p class="title">ハイラル城</p>
-                                <p class="text autoSave">オートセーブ</p>
+                                <p class="text date">{{ menuItem.date }}</p>
+                                <p class="title">{{ menuItem.title }}</p>
+                                <p v-if="menuItem.isAutoSave" class="text autoSave">オートセーブ</p>
                             </div>
                         </div>
                     </li>
@@ -44,16 +28,48 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ZeldaItemAcquisitionList from '~/components/zelda/item-acquisition.vue'
 
-@Component({
-    components: {
-        ZeldaItemAcquisitionList
-    }
-})
-export default class ZeldaBOWHome extends Vue {}
+@Component({})
+export default class ZeldaBOWHome extends Vue {
+    zeldaMainMenuList = [
+        {
+            date: '2021/06/14 20:39',
+            title: 'ハイラル城',
+            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            isAutoSave: true,
+            isActive: true
+        },
+        {
+            date: '2021/05/24 15:39',
+            title: 'ハイラル城',
+            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            isAutoSave: true,
+            isActive: false
+        },
+        {
+            date: '2021/04/10 10:39',
+            title: 'ハイラル城',
+            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            isAutoSave: false,
+            isActive: false
+        },
+        {
+            date: '2021/03/22 10:39',
+            title: 'ハイラル城',
+            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            isAutoSave: false,
+            isActive: false
+        },
+        {
+            date: '2021/02/10 10:39',
+            title: 'ハイラル城',
+            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            isAutoSave: false,
+            isActive: false
+        }
+    ]
+}
 </script>
-
 <!-- eslint-disable -->
 <style scoped lang="scss">
 .box.home {
