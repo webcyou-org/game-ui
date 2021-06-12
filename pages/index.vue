@@ -1,8 +1,12 @@
 <template>
     <div class="container">
         <div>
-            <Logo />
             <h1 class="title">game-ui</h1>
+            <ul class="list mainMenu">
+                <li>
+                    <nuxt-link to="/zelda_bow/">ゼルダの伝説 ブレス オブ ザ ワイルド</nuxt-link>
+                </li>
+            </ul>
             <zelda-item-acquisition-list></zelda-item-acquisition-list>
         </div>
     </div>
@@ -31,11 +35,15 @@ export default class Home extends Vue {}
     background: #878b3f;
     text-align: center;
 }
+.list.mainMenu {
+    margin-bottom: 50px;
+}
 .title {
     display: block;
+    margin-bottom: 50px;
     font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
-    font-size: 100px;
+    font-size: 24px;
     color: #35495e;
     letter-spacing: 1px;
 }
