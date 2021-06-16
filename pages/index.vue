@@ -4,7 +4,7 @@
             <h1 class="title">game-ui</h1>
             <ul class="list mainMenu">
                 <li>
-                    <nuxt-link to="/zelda_bow/">ゼルダの伝説 ブレス オブ ザ ワイルド</nuxt-link>
+                    <nuxt-link to="/zelda_bow/">- ゼルダの伝説 ブレス オブ ザ ワイルド</nuxt-link>
                 </li>
             </ul>
         </div>
