@@ -7,20 +7,14 @@
                     <nuxt-link to="/zelda_bow/">ゼルダの伝説 ブレス オブ ザ ワイルド</nuxt-link>
                 </li>
             </ul>
-            <zelda-item-acquisition-list></zelda-item-acquisition-list>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ZeldaItemAcquisitionList from '~/components/zelda/item-acquisition.vue'
 
-@Component({
-    components: {
-        ZeldaItemAcquisitionList
-    }
-})
+@Component({})
 export default class Home extends Vue {}
 </script>
 

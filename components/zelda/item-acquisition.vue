@@ -1,27 +1,21 @@
 <template>
-    <div>
-        <ul class="list itemAcquisitionList">
-            <li
-                v-for="item in itemAcquisitionList"
-                :key="item.timeStamp"
-                v-itemAcquisitionListItem
-                :style="{ transform: 'translate3d(0,' + item.y + 'px, 0)' }"
-            >
-                <div class="wrap">
-                    <p class="image item"><img :src="item.image" width="100%" /></p>
-                    <p class="name">{{ item.name }}</p>
-                </div>
-            </li>
-        </ul>
-        <p class="btn primary" @click.stop="onPushAcquisition({ name: 'テスト' })">
-            <a href="javascript:void(0)">ボタン</a>
-        </p>
-    </div>
+    <ul class="list itemAcquisitionList">
+        <li
+            v-for="item in itemAcquisitionList"
+            :key="item.timeStamp"
+            v-itemAcquisitionListItem
+            :style="{ transform: 'translate3d(0,' + item.y + 'px, 0)' }"
+        >
+            <div class="wrap">
+                <p class="image item"><img :src="item.image" width="100%" /></p>
+                <p class="name">{{ item.name }}</p>
+            </div>
+        </li>
+    </ul>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { remove } from 'lodash'
-import { dataurl } from '~/config/dataurl'
 
 @Component({
     directives: {
@@ -41,14 +35,12 @@ import { dataurl } from '~/config/dataurl'
 export default class ZeldaItemAcquisitionList extends Vue {
     public itemAcquisitionList: any[] = []
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    created() {
+        this.$nuxt.$on('zeldaItemAcquisition', this.onPushAcquisition)
+    }
+
     onPushAcquisition(item: any) {
-        this.itemAcquisitionList.push({
-            name: '焼きりんご',
-            image: dataurl.apple,
-            timeStamp: Date.now(),
-            y: 0
-        })
+        this.itemAcquisitionList.push(item)
         this.changeItemAcquisitionListTranslate(this.itemAcquisitionList.length)
     }
 

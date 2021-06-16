@@ -9,6 +9,7 @@
                         :key="menuItem.date"
                         :class="{ active: isListActive(index) }"
                         @mouseover="onListMouseover(index)"
+                        @click.stop="onClickList(menuItem)"
                     >
                         <p v-if="isListActive(index)" class="pic active top"></p>
                         <p v-if="isListActive(index)" class="pic active bottom"></p>
@@ -36,32 +37,37 @@ export default class ZeldaBOWHome extends Vue {
     zeldaMainMenuList = [
         {
             date: '2021/06/14 20:39',
-            title: 'ハイラル城',
+            title: 'ハイラル城 - アイテム獲得',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            path: '/zelda_bow/item',
             isAutoSave: true
         },
         {
             date: '2021/05/24 15:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            path: '/zelda_bow/item',
             isAutoSave: true
         },
         {
             date: '2021/04/10 10:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            path: '/zelda_bow/item',
             isAutoSave: false
         },
         {
             date: '2021/03/22 10:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            path: '/zelda_bow/item',
             isAutoSave: true
         },
         {
             date: '2021/02/10 10:39',
             title: 'ハイラル城',
             image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            path: '/zelda_bow/item',
             isAutoSave: false
         }
     ]
@@ -72,6 +78,10 @@ export default class ZeldaBOWHome extends Vue {
 
     onListMouseover(index: number) {
         this.zeldaMainMenuActiveNumber = index
+    }
+
+    onClickList(menuItem) {
+        this.$router.push(menuItem.path)
     }
 }
 </script>
