@@ -39,6 +39,10 @@ export default class ZeldaItemAcquisitionList extends Vue {
         this.$nuxt.$on('zeldaItemAcquisition', this.onPushAcquisition)
     }
 
+    beforeDestroy() {
+        this.$nuxt.$off('zeldaItemAcquisition')
+    }
+
     onPushAcquisition(item: any) {
         this.itemAcquisitionList.push(item)
         this.changeItemAcquisitionListTranslate(this.itemAcquisitionList.length)
