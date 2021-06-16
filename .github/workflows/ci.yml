@@ -47,4 +47,4 @@ jobs:
         run: npm run test
 
       - name: Prod Build
-        run: npm run build
+        run: npm run generate
