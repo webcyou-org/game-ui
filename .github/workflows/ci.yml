@@ -45,3 +45,6 @@ jobs:
 
       - name: Run tests 🧪
         run: npm run test
+
+      - name: Prod Build
+        run: npm run build
