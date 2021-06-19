@@ -12,5 +12,17 @@ export const zeldaBOWItemList = [
     {
         name: '木の矢',
         image: dataurl.treeArrow
+    },
+    {
+        name: '炎の矢',
+        image: dataurl.fireArrow
+    },
+    {
+        name: 'ガッツダケ',
+        image: dataurl.mushroom1
+    },
+    {
+        name: 'ケモノ肉',
+        image: dataurl.meet1
     }
 ]
