@@ -1,8 +1,5 @@
 <template>
     <div class="container">
-        <p class="btn primary" @click.stop="onClickRefresh">
-            <a href="javascript:void(0)">ボタン</a>
-        </p>
         <ul class="list itemViewList">
             <li
                 v-for="item in itemList"
@@ -14,6 +11,7 @@
                 <img :src="item.image" alt="" />
             </li>
         </ul>
+        <p class="icon ap-refresh" @click.stop="onClickRefresh"></p>
         <zelda-item-acquisition-list></zelda-item-acquisition-list>
     </div>
 </template>
@@ -99,5 +97,16 @@ export default class ZeldaBOWItem extends Vue {
     & > li {
         position: absolute;
     }
+}
+.icon.ap-refresh {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 24px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
 }
 </style>
