@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <p class="btn primary" @click.stop="onPushAcquisition">
+        <p class="btn primary" @click.stop="onClickRefresh">
             <a href="javascript:void(0)">ボタン</a>
         </p>
         <ul class="list itemViewList">
@@ -55,13 +55,9 @@ export default class ZeldaBOWItem extends Vue {
         }
     }
 
-    onPushAcquisition(): void {
-        this.$nuxt.$emit('zeldaItemAcquisition', {
-            name: zeldaBOWItemList[0].name,
-            image: zeldaBOWItemList[0].image,
-            timeStamp: Date.now(),
-            y: 0
-        })
+    onClickRefresh(): void {
+        this.itemList = []
+        this.createItemList()
     }
 
     onClickItem(item): void {
