@@ -44,7 +44,7 @@ export default class ZeldaBOWItem extends Vue {
 
     createItemList(): void {
         const maxRandomLength: number = zeldaBOWItemList.length
-        for (let i = 0; i <= this.ITEM_DISPLAY_LENGTH; i++) {
+        for (let i = 0; i < this.ITEM_DISPLAY_LENGTH; i++) {
             const pushItem = zeldaBOWItemList[Math.floor(Math.random() * maxRandomLength)]
             this.itemList.push({
                 id: i,
