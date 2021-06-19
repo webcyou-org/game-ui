@@ -19,8 +19,15 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { dataurl } from '~/config/dataurl'
+import { zeldaBOWItemList } from '~/config/zelda-bow-item-list'
 import ZeldaItemAcquisitionList from '~/components/zelda/item-acquisition.vue'
+
+interface IItem {
+    id: number
+    name: string
+    image: string
+    style: object
+}
 
 @Component({
     components: {
@@ -28,55 +35,36 @@ import ZeldaItemAcquisitionList from '~/components/zelda/item-acquisition.vue'
     }
 })
 export default class ZeldaBOWItem extends Vue {
-    itemList = [
-        {
-            id: 1,
-            name: '焼きりんご',
-            image: dataurl.apple,
-            style: this.getItemRandPosition()
-        },
-        {
-            id: 2,
-            name: '焼きりんご',
-            image: dataurl.apple,
-            style: this.getItemRandPosition()
-        },
-        {
-            id: 3,
-            name: '焼きりんご',
-            image: dataurl.apple,
-            style: this.getItemRandPosition()
-        },
-        {
-            id: 4,
-            name: '焼きりんご',
-            image: dataurl.apple,
-            style: this.getItemRandPosition()
-        },
-        {
-            id: 5,
-            name: '焼きりんご',
-            image: dataurl.apple,
-            style: this.getItemRandPosition()
-        },
-        {
-            id: 6,
-            name: '焼きりんご',
-            image: dataurl.apple,
-            style: this.getItemRandPosition()
-        }
-    ]
+    ITEM_DISPLAY_LENGTH: number = 10
+    itemList: IItem[] = []
 
-    onPushAcquisition() {
+    created() {
+        this.createItemList()
+    }
+
+    createItemList(): void {
+        const maxRandomLength: number = zeldaBOWItemList.length
+        for (let i = 0; i <= this.ITEM_DISPLAY_LENGTH; i++) {
+            const pushItem = zeldaBOWItemList[Math.floor(Math.random() * maxRandomLength)]
+            this.itemList.push({
+                id: i,
+                name: pushItem.name,
+                image: pushItem.image,
+                style: this.getItemRandPosition()
+            })
+        }
+    }
+
+    onPushAcquisition(): void {
         this.$nuxt.$emit('zeldaItemAcquisition', {
-            name: '焼きりんご',
-            image: dataurl.apple,
+            name: zeldaBOWItemList[0].name,
+            image: zeldaBOWItemList[0].image,
             timeStamp: Date.now(),
             y: 0
         })
     }
 
-    onClickItem(item) {
+    onClickItem(item): void {
         this.$nuxt.$emit('zeldaItemAcquisition', {
             name: item.name,
             image: item.image,
@@ -86,7 +74,7 @@ export default class ZeldaBOWItem extends Vue {
         this.removeItem(item)
     }
 
-    removeItem(item) {
+    removeItem(item): void {
         this.itemList.splice(this.itemList.indexOf(item), 1)
     }
 
