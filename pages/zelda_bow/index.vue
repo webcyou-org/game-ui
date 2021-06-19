@@ -38,35 +38,35 @@ export default class ZeldaBOWHome extends Vue {
         {
             date: '2021/06/14 20:39',
             title: 'ハイラル城 - アイテム獲得',
-            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            image: require('~/assets/images/pic_zelda_bow_main_menu_1.jpg'),
             path: '/zelda_bow/item',
             isAutoSave: true
         },
         {
             date: '2021/05/24 15:39',
             title: 'ハイラル城',
-            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            image: require('~/assets/images/pic_zelda_bow_main_menu_2.jpg'),
             path: '/zelda_bow/item',
             isAutoSave: true
         },
         {
             date: '2021/04/10 10:39',
             title: 'ハイラル城',
-            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            image: require('~/assets/images/pic_zelda_bow_main_menu_3.jpg'),
             path: '/zelda_bow/item',
             isAutoSave: false
         },
         {
             date: '2021/03/22 10:39',
             title: 'ハイラル城',
-            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            image: require('~/assets/images/pic_zelda_bow_main_menu_4.jpg'),
             path: '/zelda_bow/item',
             isAutoSave: true
         },
         {
             date: '2021/02/10 10:39',
             title: 'ハイラル城',
-            image: require('~/assets/images/pic_zelda_bow_main_menu.jpg'),
+            image: require('~/assets/images/pic_zelda_bow_main_menu_1.jpg'),
             path: '/zelda_bow/item',
             isAutoSave: false
         }
