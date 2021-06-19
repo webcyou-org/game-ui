@@ -8,7 +8,8 @@
                 :style="item.style"
                 @click.stop="onClickItem(item)"
             >
-                <img :src="item.image" alt="" />
+                <p class="text name" v-itemName>{{ item.name }}</p>
+                <p class="img"><img :src="item.image" alt="" /></p>
             </li>
         </ul>
         <p class="icon ap-refresh" @click.stop="onClickRefresh"></p>
@@ -30,6 +31,17 @@ interface IItem {
 @Component({
     components: {
         ZeldaItemAcquisitionList
+    },
+    directives: {
+        itemName: {
+            inserted: (element: any) => {
+                const rect = element.getBoundingClientRect()
+                if (rect.width > 66) {
+                    const rectWidth = Math.floor(rect.width)
+                    element.style.marginLeft = `-${(rectWidth - 66) / 2}px`
+                }
+            }
+        }
     }
 })
 export default class ZeldaBOWItem extends Vue {
@@ -96,6 +108,39 @@ export default class ZeldaBOWItem extends Vue {
     height: 45%;
     & > li {
         position: absolute;
+        .text.name {
+            position: absolute;
+            top: -43px;
+            height: 28px;
+            padding: 0 14px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f2f5e4;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 28px;
+            white-space: nowrap;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                width: 0;
+                height: 0;
+                margin-left: -5px;
+                border-style: solid;
+                border-width: 10px 5px 0 5px;
+                border-color: rgba(0, 0, 0, 0.5) transparent transparent transparent;
+            }
+        }
+        &:hover .text.name {
+            z-index: 10;
+            opacity: 1;
+        }
     }
 }
 .icon.ap-refresh {
@@ -103,7 +148,7 @@ export default class ZeldaBOWItem extends Vue {
     bottom: 30px;
     left: 30px;
     padding: 10px;
-    border: #fff 2px solid;
+    border: #fff 4px solid;
     border-radius: 24px;
     font-size: 24px;
     color: #fff;
