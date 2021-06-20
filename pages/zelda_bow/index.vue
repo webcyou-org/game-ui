@@ -122,16 +122,16 @@ export default class ZeldaBOWHome extends Vue {
         & > li {
             position: relative;
             display: block;
-            height: 84px;
+            height: 88px;
             padding: 2px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             border-radius: 4px;
             background: rgba(0,0,0,0.5);
             cursor: pointer;
             & > .wrap {
                 position: relative;
                 display: flex;
-                height: 78px;
+                height: 84px;
                 padding: 2px;
                 border: rgba(255,255,255,0.1) 1px solid;
                 border-radius: 4px;
@@ -170,7 +170,7 @@ export default class ZeldaBOWHome extends Vue {
                         height: 18px;
                         background: #2e3231;
                         color: #bcbdad;
-                        font-size: 13px;
+                        font-size: 12px;
                         font-weight: bold;
                         line-height: 18px;
                         text-align: center;

@@ -1,10 +1,46 @@
 <template>
     <div class="container">
-        <div>
-            <h1 class="title">game-ui</h1>
-            <ul class="list mainMenu">
+        <div class="box homeHeader">
+            <ul class="list userList">
+                <li></li>
+            </ul>
+            <div class="box right">
+                <p class="text time">23:40</p>
+                <p class="icon wifi"></p>
+                <p class="icon battery"></p>
+            </div>
+        </div>
+        <div class="box mainContents">
+            <ul class="list homeMainMenuList">
+                <li @click.stop="onClickMainMenu()">
+                    <p class="title">ゼルダの伝説 ブレス オブ ザ ワイルド</p>
+                    <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
+                </li>
+            </ul>
+            <ul class="list subMenuList">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="box homeFooter">
+            <p class="pic controller"></p>
+            <ul class="list controllNavList">
                 <li>
-                    <nuxt-link to="/zelda_bow/">- ゼルダの伝説 ブレス オブ ザ ワイルド</nuxt-link>
+                    <p class="icon">✛</p>
+                    <p class="text">オプション</p>
+                </li>
+                <li>
+                    <p class="icon">Y</p>
+                    <p class="text">ユーザー切替</p>
+                </li>
+                <li>
+                    <p class="icon">X</p>
+                    <p class="text">ソフトを終わる</p>
+                </li>
+                <li>
+                    <p class="icon">A</p>
+                    <p class="text">つづける</p>
                 </li>
             </ul>
         </div>
@@ -15,30 +51,127 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class Home extends Vue {}
+export default class Home extends Vue {
+    onClickMainMenu() {
+        this.$router.push('/zelda_bow/')
+    }
+}
 </script>
 
 <!-- eslint-disable -->
 <style scoped lang="scss">
 .container {
-    margin: 0 auto;
-    min-height: 100vh;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #ebebeb;
+}
+.box.homeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34px 30px 0;
+    .list.userList {
+        & > li {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background: #fff;
+        }
+    }
+    .box.right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        & > .icon {
+            margin-left: 24px;
+        }
+        .text.time {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .icon.battery {
+            position: relative;
+            width: 33px;
+            height: 20px;
+            padding: 3px;
+            border: 3px solid #333;
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+            }
+            &::before {
+                left: 2px;
+                top: 2px;
+                width: 23px;
+                height: 10px;
+                background: #333;
+            }
+            &::after {
+                right: -6px;
+                top: 4px;
+                width: 3px;
+                height: 6px;
+                background: #333;
+            }
+        }
+    }
+}
+.box.mainContents {
+    flex: 1 1 100%;
+    padding: 44px 0 0 66px;
+}
+.list.homeMainMenuList {
+    & > li {
+        cursor: pointer;
+    }
+}
+.list.subMenuList {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #878b3f;
-    text-align: center;
+    margin-top: 5px;
+    & > li {
+        width: 88px;
+        height: 88px;
+        margin: 0 11px;
+        border-radius: 44px;
+        background: #fff;
+    }
 }
-.list.mainMenu {
-    margin-bottom: 50px;
+.list.controllNavList {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    & > li {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+        font-size: 21px;
+        & > .icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #2d2d2d;
+            font-size: 16px;
+            color: #ebebeb;
+            text-align: center;
+            line-height: 26px;
+        }
+        & > .text {
+            margin-left: 12px;
+        }
+    }
 }
-.title {
-    display: block;
-    margin-bottom: 50px;
-    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 300;
-    font-size: 24px;
-    color: #35495e;
-    letter-spacing: 1px;
+.box.homeFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    border-top: #2d2d2d 1px solid;
 }
 </style>
