@@ -146,16 +146,23 @@ export default class Home extends Vue {
     display: flex;
     & > li {
         position: relative;
-        width: 264px;
-        margin-left: 5px;
+        width: 272px;
+        margin-left: -2px;
         border: 4px solid transparent;
+        border-radius: 4px;
         cursor: pointer;
+        .image {
+            border: 4px solid transparent;
+        }
         &.current {
-            border: 4px solid #fff;
-            box-shadow: 0 0 5px 3px rgba(66, 207, 198, 1);
-            animation: main-menu-item-active-box-shadow 1s infinite;
+            border-color: #3af0d9;
+            box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.2);
+            animation: main-menu-item-active-border-color 1s infinite;
             .title {
                 display: block;
+            }
+            .image {
+                border: 4px solid #fff;
             }
         }
         .title {
@@ -213,15 +220,15 @@ export default class Home extends Vue {
     height: 72px;
     border-top: #2d2d2d 1px solid;
 }
-@keyframes main-menu-item-active-box-shadow {
+@keyframes main-menu-item-active-border-color {
     0% {
-        box-shadow: 0 0 5px 3px rgba(66, 207, 198, 1);
+        border-color: #3af0d9;
     }
     50% {
-        box-shadow: 0 0 5px 3px rgba(58, 240, 217, 1);
+        border-color: #00beca;
     }
     100% {
-        box-shadow: 0 0 5px 3px rgba(66, 207, 198, 1);
+        border-color: #3af0d9;
     }
 }
 </style>
