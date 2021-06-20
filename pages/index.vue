@@ -13,6 +13,13 @@
         <div class="box mainContents">
             <div class="wrap">
                 <ul class="list homeMainMenuList">
+                    <li class="current" @click.stop="onClickMainMenu()">
+                        <p class="title">
+                            <span class="icon"></span>
+                            <span class="name">ゼルダの伝説 ブレス オブ ザ ワイルド</span>
+                        </p>
+                        <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
+                    </li>
                     <li @click.stop="onClickMainMenu()">
                         <p class="title">ゼルダの伝説 ブレス オブ ザ ワイルド</p>
                         <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
@@ -136,8 +143,30 @@ export default class Home extends Vue {
     }
 }
 .list.homeMainMenuList {
+    display: flex;
     & > li {
+        position: relative;
+        width: 264px;
+        margin-left: 5px;
+        border: 4px solid transparent;
         cursor: pointer;
+        &.current {
+            border: 4px solid #fff;
+            box-shadow: 0 0 5px 3px rgba(66, 207, 198, 1);
+            animation: main-menu-item-active-box-shadow 1s infinite;
+            .title {
+                display: block;
+            }
+        }
+        .title {
+            display: none;
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 500px;
+            font-size: 28px;
+            color: #00bed0;
+        }
     }
 }
 .list.subMenuList {
@@ -183,5 +212,16 @@ export default class Home extends Vue {
     align-items: center;
     height: 72px;
     border-top: #2d2d2d 1px solid;
+}
+@keyframes main-menu-item-active-box-shadow {
+    0% {
+        box-shadow: 0 0 5px 3px rgba(66, 207, 198, 1);
+    }
+    50% {
+        box-shadow: 0 0 5px 3px rgba(58, 240, 217, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px 3px rgba(66, 207, 198, 1);
+    }
 }
 </style>
