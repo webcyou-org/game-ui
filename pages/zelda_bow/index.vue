@@ -192,6 +192,7 @@ export default class ZeldaBOWHome extends Vue {
 
             &.active {
                 box-shadow: 1px 1px 24px 1px rgba(255, 255, 232, 0.3);
+                animation: item-active-box-shadow 1.5s infinite;
                 & > .wrap .image::before {
                     display: none;
                 }
@@ -248,6 +249,17 @@ export default class ZeldaBOWHome extends Vue {
                 }
             }
         }
+    }
+}
+@keyframes item-active-box-shadow {
+    0% {
+        box-shadow: 1px 1px 24px 1px rgba(255, 255, 232, 0.3);
+    }
+    50% {
+        box-shadow: 4px 1px 24px 1px rgba(255, 255, 232, 0.4);
+    }
+    100% {
+        box-shadow: 1px 1px 24px 1px rgba(255, 255, 232, 0.3);
     }
 }
 @keyframes item-active-left-top {
