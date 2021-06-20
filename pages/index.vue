@@ -11,17 +11,21 @@
             </div>
         </div>
         <div class="box mainContents">
-            <ul class="list homeMainMenuList">
-                <li @click.stop="onClickMainMenu()">
-                    <p class="title">ゼルダの伝説 ブレス オブ ザ ワイルド</p>
-                    <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
-                </li>
-            </ul>
-            <ul class="list subMenuList">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+            <div class="wrap">
+                <ul class="list homeMainMenuList">
+                    <li @click.stop="onClickMainMenu()">
+                        <p class="title">ゼルダの伝説 ブレス オブ ザ ワイルド</p>
+                        <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
+                    </li>
+                </ul>
+                <ul class="list subMenuList">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
         </div>
         <div class="box homeFooter">
             <p class="pic controller"></p>
@@ -88,7 +92,7 @@ export default class Home extends Vue {
             margin-left: 24px;
         }
         .text.time {
-            font-size: 14px;
+            font-size: 20px;
             font-weight: bold;
             color: #333;
         }
@@ -122,8 +126,14 @@ export default class Home extends Vue {
     }
 }
 .box.mainContents {
+    display: flex;
+    align-items: center;
     flex: 1 1 100%;
-    padding: 44px 0 0 66px;
+    padding: 0 0 0 66px;
+    & > .wrap {
+        width: 100%;
+        padding-top: 5px;
+    }
 }
 .list.homeMainMenuList {
     & > li {
@@ -134,7 +144,7 @@ export default class Home extends Vue {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 30px;
     & > li {
         width: 88px;
         height: 88px;
