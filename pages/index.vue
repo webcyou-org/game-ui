@@ -103,6 +103,9 @@ export default class Home extends Vue {
             font-weight: bold;
             color: #333;
         }
+        .icon.wifi {
+            margin-bottom: -20px;
+        }
         .icon.battery {
             position: relative;
             width: 33px;

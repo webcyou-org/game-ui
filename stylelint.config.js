@@ -6,6 +6,7 @@ module.exports = {
         indentation: 4,
         'string-quotes': 'double',
         'no-descending-specificity': null,
-        'no-empty-source': null
+        'no-empty-source': null,
+        'at-rule-no-unknown': [true, { ignoreAtRules: ['include', 'mixin', 'each', 'for', 'at-root'] }]
     }
 }
