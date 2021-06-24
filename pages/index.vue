@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="box homeFooter">
-            <p class="pic controller"></p>
+            <p class="pic controller switch"><span class="leftBtn"></span><span class="rightBtn"></span></p>
             <ul class="list controllNavList">
                 <li>
                     <p class="icon">✛</p>
@@ -214,6 +214,51 @@ export default class Home extends Vue {
         & > .text {
             margin-left: 12px;
         }
+    }
+}
+.pic.controller.switch {
+    position: relative;
+    width: 70px;
+    height: 30px;
+    margin-left: 24px;
+    border-top: 4px solid #2d2d2d;
+    border-bottom: 4px solid #2d2d2d;
+    border-left: 14px solid #2d2d2d;
+    border-right: 14px solid #2d2d2d;
+    border-radius: 6px;
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #ebebeb;
+        border-radius: 2px;
+    }
+    &::before {
+        top: 3px;
+        left: -9px;
+    }
+    &::after {
+        bottom: 3px;
+        right: -9px;
+    }
+    & > .leftBtn,
+    & > .rightBtn {
+        display: block;
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        box-shadow: 0 -3px 1px 0 #ebebeb, 0 3px 1px 0 #ebebeb, 3px 0 1px 0 #ebebeb, -3px 0 1px 0 #ebebeb;
+    }
+    & > .leftBtn {
+        top: 15px;
+        left: -8px;
+    }
+    & > .rightBtn {
+        top: 4px;
+        right: -8px;
     }
 }
 .box.homeFooter {
