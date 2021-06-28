@@ -13,16 +13,18 @@
         <div class="box mainContents">
             <div class="wrap">
                 <ul class="list homeMainMenuList">
-                    <li class="current" @click.stop="onClickMainMenu()">
+                    <li
+                        v-for="(menuItem, index) in mainMenuList"
+                        :key="index"
+                        :class="{ current: isListActive(index) }"
+                        @mouseover="onListMouseover(index)"
+                        @click.stop="onClickMainMenu(menuItem)"
+                    >
                         <p class="title">
                             <span class="icon"></span>
-                            <span class="name">ゼルダの伝説 ブレス オブ ザ ワイルド</span>
+                            <span class="name">{{ menuItem.title }}</span>
                         </p>
-                        <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
-                    </li>
-                    <li @click.stop="onClickMainMenu()">
-                        <p class="title">ゼルダの伝説 ブレス オブ ザ ワイルド</p>
-                        <p class="image"><img src="~/assets/images/pic_home_main_menu_1.jpg" alt="" /></p>
+                        <p class="image"><img :src="menuItem.image" alt="" /></p>
                     </li>
                 </ul>
                 <ul class="list subMenuList">
@@ -63,8 +65,30 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class Home extends Vue {
-    onClickMainMenu() {
-        this.$router.push('/zelda_bow/')
+    mainMenuActiveNumber = 0
+    mainMenuList = [
+        {
+            title: 'ゼルダの伝説 ブレス オブ ザ ワイルド',
+            image: require('~/assets/images/pic_home_main_menu_1.jpg'),
+            path: '/zelda_bow/'
+        },
+        {
+            title: 'ゼルダの伝説 ブレス オブ ザ ワイルド',
+            image: require('~/assets/images/pic_home_main_menu_1.jpg'),
+            path: '/zelda_bow/'
+        }
+    ]
+
+    isListActive(index): boolean {
+        return index === this.mainMenuActiveNumber
+    }
+
+    onListMouseover(index: number) {
+        this.mainMenuActiveNumber = index
+    }
+
+    onClickMainMenu(menuItem) {
+        this.$router.push(menuItem.path)
     }
 }
 </script>
