@@ -214,6 +214,10 @@ export default class Home extends Vue {
         margin: 0 11px;
         border-radius: 44px;
         background: #fff;
+        cursor: pointer;
+        &:first-child {
+            background: #e70012;
+        }
     }
 }
 .list.controllNavList {
