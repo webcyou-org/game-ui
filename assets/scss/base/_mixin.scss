@@ -137,9 +137,3 @@
         }
     }
 }
-
-.icon.wifi {
-    @include getWifi(16px);
-
-    transform: translate(-25%);
-}

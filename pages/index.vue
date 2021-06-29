@@ -95,6 +95,8 @@ export default class Home extends Vue {
 
 <!-- eslint-disable -->
 <style scoped lang="scss">
+@import "~assets/scss/base/mixin";
+
 .container {
     padding: 0 30px;
     display: flex;
@@ -128,6 +130,9 @@ export default class Home extends Vue {
             color: #333;
         }
         .icon.wifi {
+            @include getWifi(16px);
+
+            transform: translate(-25%);
             margin-bottom: -20px;
         }
         .icon.battery {
