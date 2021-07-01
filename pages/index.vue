@@ -2,7 +2,9 @@
     <div class="container">
         <div class="box homeHeader">
             <ul class="list userList">
-                <li></li>
+                <li>
+                    <p class="image"><img src="~/assets/images/user/profile.jpg" alt="" /></p>
+                </li>
             </ul>
             <div class="box right">
                 <p class="text time">23:40</p>
@@ -115,6 +117,18 @@ export default class Home extends Vue {
             height: 60px;
             border-radius: 30px;
             background: #fff;
+            cursor: pointer;
+            .image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 60px;
+                height: 60px;
+                & > img {
+                    width: 54px;
+                    border-radius: 100%;
+                }
+            }
         }
     }
     .box.right {
