@@ -30,7 +30,15 @@
                     </li>
                 </ul>
                 <ul class="list subMenuList">
-                    <li></li>
+                    <li>
+                        <div class="box pic switchIcon">
+                            <div class="pic controller">
+                                <p class="pic left"></p>
+                                <p class="pic right"></p>
+                            </div>
+                            <p class="text">ONLINE</p>
+                        </div>
+                    </li>
                     <li></li>
                     <li></li>
                     <li></li>
@@ -228,6 +236,9 @@ export default class Home extends Vue {
     align-items: center;
     margin-top: 30px;
     & > li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 88px;
         height: 88px;
         margin: 0 11px;
@@ -236,6 +247,57 @@ export default class Home extends Vue {
         cursor: pointer;
         &:first-child {
             background: #e70012;
+        }
+        .box.pic.switchIcon {
+            .pic.controller {
+                display: flex;
+                justify-content: center;
+                .pic.left,
+                .pic.right {
+                    position: relative;
+                    width: 13px;
+                    height: 28px;
+                    &::before,
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 100%;
+                    }
+                }
+                .pic.left {
+                    margin-right: 1px;
+                    border: #fffefd 2px solid;
+                    border-top-left-radius: 7px;
+                    border-bottom-left-radius: 7px;
+                    background: #e7060e;
+                    &::before {
+                        top: 2px;
+                        left: 2px;
+                        background: #fffefd;
+                    }
+                }
+                .pic.right {
+                    margin-left: 1px;
+                    border-top-right-radius: 7px;
+                    border-bottom-right-radius: 7px;
+                    background: #fffefd;
+                    &::before {
+                        top: 8px;
+                        left: 3px;
+                        background: #e7060e;
+                    }
+                }
+            }
+            .text {
+                margin-top: 4px;
+                color: #fffefd;
+                font-size: 8px;
+                font-weight: bold;
+                text-align: center;
+            }
         }
     }
 }
