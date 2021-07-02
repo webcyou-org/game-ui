@@ -244,6 +244,7 @@ export default class Home extends Vue {
         margin: 0 11px;
         border-radius: 44px;
         background: #fff;
+        box-shadow: 0 0 2px 1px #e4e4e4;
         cursor: pointer;
         &:first-child {
             background: #e70012;
