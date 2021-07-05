@@ -39,7 +39,11 @@
                             <p class="text">ONLINE</p>
                         </div>
                     </li>
-                    <li></li>
+                    <li>
+                        <div class="box pic switchMessage">
+                            <p class="pic triangular"></p>
+                        </div>
+                    </li>
                     <li></li>
                     <li></li>
                     <li></li>
@@ -298,6 +302,40 @@ export default class Home extends Vue {
                 font-size: 8px;
                 font-weight: bold;
                 text-align: center;
+            }
+        }
+        .box.pic.switchMessage {
+            position: relative;
+            width: 42px;
+            height: 35px;
+            border: 4px solid #ff3342;
+            border-radius: 6px;
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                border-bottom: 4px solid #ff3342;
+            }
+            &::before {
+                top: 17px;
+                width: 100%;
+            }
+            &::after {
+                top: 22px;
+                left: 2px;
+                width: 14px;
+            }
+            .pic.triangular {
+                position: absolute;
+                top: 26px;
+                left: 12px;
+                width: 10px;
+                height: 10px;
+                border-right: 4px solid #ff3342;
+                border-bottom: 4px solid #ff3342;
+                background: #fff;
+                transform: rotate(45deg);
             }
         }
     }
