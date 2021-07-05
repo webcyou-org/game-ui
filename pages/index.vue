@@ -308,6 +308,7 @@ export default class Home extends Vue {
             position: relative;
             width: 42px;
             height: 35px;
+            margin-top: -4px;
             border: 4px solid #ff3342;
             border-radius: 6px;
             &::before,
