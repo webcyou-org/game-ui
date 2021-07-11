@@ -44,7 +44,11 @@
                             <p class="pic triangular"></p>
                         </div>
                     </li>
-                    <li></li>
+                    <li>
+                        <div class="box pic switchBag">
+                            <p class="pic bag"><span class="pic handle"></span></p>
+                        </div>
+                    </li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -337,6 +341,46 @@ export default class Home extends Vue {
                 border-bottom: 4px solid #ff3342;
                 background: #fff;
                 transform: rotate(45deg);
+            }
+        }
+        .box.pic.switchBag {
+            margin-top: 4px;
+            .pic.bag {
+                position: relative;
+                width: 42px;
+                height: 28px;
+                border-bottom: 4px solid #ffa300;
+                box-shadow: -9px -16px 0 -12px #ffa300, 9px -16px 0 -12px #ffa300;
+                &::before,
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: -4px;
+                    width: 4px;
+                    height: 31px;
+                    background: #ffa300;
+                }
+                &::before {
+                    left: 0;
+                    transform: rotate(4deg);
+                }
+                &::after {
+                    right: 0;
+                    transform: rotate(-4deg);
+                }
+                .pic.handle {
+                    display: block;
+                    position: absolute;
+                    top: -12px;
+                    left: 12px;
+                    width: 18px;
+                    height: 18px;
+                    border: 4px solid #ffa300;
+                    border-bottom: none;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                }
             }
         }
     }
