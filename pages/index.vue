@@ -49,6 +49,12 @@
                             <p class="pic bag"><span class="pic handle"></span></p>
                         </div>
                     </li>
+                    <li>
+                        <div class="box pic switchPhoto">
+                            <p class="pic photo"><span></span></p>
+                        </div>
+                    </li>
+                    <li></li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -380,6 +386,50 @@ export default class Home extends Vue {
                     border-bottom: none;
                     border-top-left-radius: 6px;
                     border-top-right-radius: 6px;
+                }
+            }
+        }
+        .box.pic.switchPhoto {
+            .pic.photo {
+                position: relative;
+                width: 48px;
+                height: 33px;
+                border: 4px solid #1775fb;
+                &::before,
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    box-sizing: border-box;
+                }
+                &::before {
+                    left: 5px;
+                    width: 18px;
+                    height: 21px;
+                    border: 4px solid #1775fb;
+                    border-bottom: none;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+                &::after {
+                    left: 19px;
+                    width: 14px;
+                    height: 14px;
+                    border: 4px solid #1775fb;
+                    border-bottom: none;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+                & > span {
+                    position: absolute;
+                    left: 12px;
+                    bottom: 0;
+                    display: block;
+                    width: 11px;
+                    height: 7px;
+                    background: #fff;
+                    z-index: 1;
                 }
             }
         }
