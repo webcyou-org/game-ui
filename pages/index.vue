@@ -271,7 +271,7 @@ export default class Home extends Vue {
                 .pic.right {
                     position: relative;
                     width: 13px;
-                    height: 28px;
+                    height: 29px;
                     &::before,
                     &::after {
                         content: "";
@@ -283,24 +283,24 @@ export default class Home extends Vue {
                     }
                 }
                 .pic.left {
-                    margin-right: 1px;
+                    margin-right: 2px;
                     border: #fffefd 2px solid;
                     border-top-left-radius: 7px;
                     border-bottom-left-radius: 7px;
                     background: #e7060e;
                     &::before {
-                        top: 2px;
+                        top: 4px;
                         left: 2px;
                         background: #fffefd;
                     }
                 }
                 .pic.right {
-                    margin-left: 1px;
+                    margin-left: 2px;
                     border-top-right-radius: 7px;
                     border-bottom-right-radius: 7px;
                     background: #fffefd;
                     &::before {
-                        top: 8px;
+                        top: 12px;
                         left: 3px;
                         background: #e7060e;
                     }
