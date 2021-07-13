@@ -54,7 +54,11 @@
                             <p class="pic photo"><span></span></p>
                         </div>
                     </li>
-                    <li></li>
+                    <li>
+                        <div class="box pic switchController">
+                            <p class="pic singleController"><span></span></p>
+                        </div>
+                    </li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -430,6 +434,29 @@ export default class Home extends Vue {
                     height: 7px;
                     background: #fff;
                     z-index: 1;
+                }
+            }
+        }
+        .box.pic.switchController {
+            .pic.singleController {
+                position: relative;
+                width: 24px;
+                height: 48px;
+                border: 4px solid #707879;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                transform: rotate(45deg);
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 8px;
+                    left: 4px;
+                    width: 8px;
+                    height: 8px;
+                    background: #707879;
+                    border-radius: 100%;
+                    box-shadow: 0 -20px 0 -2px #707879, 0 -11px 0 -2px #707879, -4px -16px 0 -2px #707879, 4px -16px 0 -2px #707879;
                 }
             }
         }
