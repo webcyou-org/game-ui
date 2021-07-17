@@ -518,6 +518,23 @@ export default class Home extends Vue {
         .box.pic.switchSleep {
             .pic.switchSleep {
                 position: relative;
+                width: 38px;
+                height: 38px;
+                border: 4px solid #707879;
+                border-radius: 100%;
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: -8px;
+                    left: 50%;
+                    width: 4px;
+                    height: 20px;
+                    margin-left: -2px;
+                    background: #707879;
+                    z-index: 1;
+                    box-shadow: -4px 0 0 0 #fff, 4px 0 0 0 #fff;
+                }
             }
         }
     }
