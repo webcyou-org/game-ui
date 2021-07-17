@@ -59,8 +59,19 @@
                             <p class="pic singleController"><span></span></p>
                         </div>
                     </li>
-                    <li></li>
-                    <li></li>
+                    <li>
+                        <div class="box pic switchSetting">
+                            <p class="pic switchSetting">
+                                <span class="pic circle"></span><span class="pic line"></span
+                                ><span class="pic line"></span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box pic switchSleep">
+                            <p class="pic switchSleep"><span></span></p>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -458,6 +469,55 @@ export default class Home extends Vue {
                     border-radius: 100%;
                     box-shadow: 0 -20px 0 -2px #707879, 0 -11px 0 -2px #707879, -4px -16px 0 -2px #707879, 4px -16px 0 -2px #707879;
                 }
+            }
+        }
+        .box.pic.switchSetting {
+            .pic.switchSetting {
+                position: relative;
+                margin-top: -2px;
+                span {
+                    display: block;
+                }
+                .pic.circle {
+                    position: relative;
+                    width: 30px;
+                    height: 30px;
+                    border: 4px solid #707879;
+                    border-radius: 100%;
+                    background: #fff;
+                    z-index: 10;
+                }
+                .pic.line {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    &::before,
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: -21px;
+                        width: 4px;
+                        height: 42px;
+                        margin-left: -2px;
+                        background: #707879;
+                        z-index: 1;
+                    }
+                    &::after {
+                        transform: rotate(90deg);
+                    }
+                    & + .pic.line::before {
+                        transform: rotate(45deg);
+                    }
+                    & + .pic.line::after {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+        .box.pic.switchSleep {
+            .pic.switchSleep {
+                position: relative;
             }
         }
     }
