@@ -112,9 +112,14 @@ export default class Home extends Vue {
             path: '/zelda_bow/'
         },
         {
-            title: 'ゼルダの伝説 ブレス オブ ザ ワイルド',
-            image: require('~/assets/images/pic_home_main_menu_1.jpg'),
-            path: '/zelda_bow/'
+            title: 'ファミリーコンピュータ Nintendo Switch Online',
+            image: require('~/assets/images/pic_home_main_menu_2.jpg'),
+            path: '/'
+        },
+        {
+            title: 'スーパーファミコン Nintendo Switch Online',
+            image: require('~/assets/images/pic_home_main_menu_3.jpg'),
+            path: '/'
         }
     ]
 
@@ -256,6 +261,8 @@ export default class Home extends Vue {
             width: 500px;
             font-size: 28px;
             color: #00bed0;
+            overflow: hidden;
+            white-space: nowrap;
         }
     }
 }
