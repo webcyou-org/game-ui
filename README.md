@@ -2,6 +2,8 @@
 
 [Game UI Collection](https://webcyou-org.github.io/game-ui/)
 
+![switch_home](https://user-images.githubusercontent.com/1584153/138576992-9d921790-e8fb-4334-a0d9-26368ee8be72.png)
+
 ### UI Sampling Site
 
 [Game UI Database](https://www.gameuidatabase.com/)
